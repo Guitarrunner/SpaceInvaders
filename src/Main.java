@@ -9,10 +9,14 @@ public class Main  extends Canvas implements Runnable{
 	private static final long serialVersionUID = 1L;
 	private static final int ancho = 640, alto = ancho / 12 *9;
 	public Main() {
+		manejador = new Manejador();
+		
 		new Ventana(ancho,alto,"Space Invaders",this);
 		
-		manejador = new Manejador();
-		manejador.agregar(new Jugador(100,100,ID.Jugador));
+		
+		manejador.objetos.agregar(new Jugador(100,100,ID.Jugador));
+		manejador.objetos.agregar(new Enemigo(200,200,ID.Enemigo));
+		this.addKeyListener(new Teclado(manejador));
 	}
 	private Thread thread;
 	private boolean corriendo = false;
@@ -81,7 +85,6 @@ public class Main  extends Canvas implements Runnable{
 	}
 	public static void main(String[] args) {
 		new Main();
-		
 }
 	
 }

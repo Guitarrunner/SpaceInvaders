@@ -67,6 +67,17 @@ public class ListaSimple {
 		return tmp;
 		}
 	}
+	
+	int size() {
+		Objetos tmp=Root;
+		int size=0;
+		while(tmp.getNext()!=null) {
+			tmp=tmp.getNext();
+			size++;
+		}
+		size=size+1;
+		return size;
+	}
 }
 
 

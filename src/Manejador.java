@@ -1,7 +1,7 @@
 import java.awt.Graphics;
-import java.util.LinkedList;
+
 public class Manejador extends ListaSimple {
-	LinkedList<Objetos> objetos = new LinkedList<Objetos>();
+	ListaSimple objetos = new ListaSimple();
 	public void tick() {
 		int i=0;
 		while(i<objetos.size()) {
@@ -19,13 +19,6 @@ public class Manejador extends ListaSimple {
 			i+=1;
 		}
 	}
-	
-	public void agregar(Objetos objeto) {
-		this.objetos.add(objeto);
-	}
-	
-	public void remove(Objetos objeto) {
-		this.objetos.remove(objeto);
-	}
+
 }
 
