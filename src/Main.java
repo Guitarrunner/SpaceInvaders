@@ -1,12 +1,15 @@
 import java.awt.Canvas;
 
+import java.awt.Color;
+import java.awt.image.BufferStrategy;
+import java.awt.Graphics;
 public class Main  extends Canvas implements Runnable{
 	
 
 	private static final long serialVersionUID = 1L;
 	private static final int ancho = 640, alto = ancho / 12 *9;
 	public Main() {
-		new Ventana(ancho,alto,"Joli",this);
+		new Ventana(ancho,alto,"Space Invaders",this);
 	}
 	private Thread thread;
 	private boolean corriendo = false;
@@ -23,7 +26,8 @@ public class Main  extends Canvas implements Runnable{
 			e.printStackTrace();
 		}
 	}
-	public void corriendo(){
+	@Override
+	public void run(){
 		long ultimavez = System.nanoTime();
 		double cantidadTicks = 60.0;
 		double ns = 1000000000 / cantidadTicks;
@@ -54,15 +58,22 @@ public class Main  extends Canvas implements Runnable{
 		
 	}
 	private void render() {
+		BufferStrategy bs = this.getBufferStrategy();
+		if(bs == null) {
+			this.createBufferStrategy(3);
+			return;
+		}
+		Graphics g = bs.getDrawGraphics();
+		g.setColor(Color.black);
+		g.fillRect(0, 0, ancho, alto);
+		g.dispose();
+		bs.show();
+		
 		
 	}
 	public static void main(String[] args) {
 		new Main();
 		
 }
-	@Override
-	public void run() {
-		// TODO Auto-generated method stub
-		
-	}
+	
 }

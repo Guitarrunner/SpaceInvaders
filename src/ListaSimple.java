@@ -1,25 +1,27 @@
 
 
 public class ListaSimple {
-	Nodo Root = null;
-	
-	void agregar(Nodo Nuevo) {
+	Objetos Root = null;
+	int cantidadNodos;
+	void agregar(Objetos Nuevo) {
 		if (Root==null) {
 			Root = Nuevo;
+			cantidadNodos=1;
 			return;
 		}
 		else {
-			Nodo tmp = Root;
+			Objetos tmp = Root;
 			while(tmp.getNext()!=null) {
 				tmp=tmp.getNext();
 			}
 			tmp.setNext(Nuevo);
+			cantidadNodos+=1;
 			return;
 		}
 	}
 	
 	void imprimirLista() {
-		Nodo tmp = Root;
+		Objetos tmp = Root;
 		while(tmp.getNext()!=null) {
 			System.out.println(tmp.getValor());
 			tmp=tmp.getNext();
@@ -35,7 +37,7 @@ public class ListaSimple {
 		}
 		else {
 				int puntero = 0;
-				Nodo tmp=Root;
+				Objetos tmp=Root;
 				while(puntero!=posicion-1) {
 					if (tmp.getNext()!= null) {
 						tmp=tmp.getNext();
@@ -50,4 +52,26 @@ public class ListaSimple {
 				return;
 		}
 	}
+	
+	Objetos get(int i) {
+		if(i>cantidadNodos) {
+			throw new IllegalArgumentException("Index out of range");
+		}
+		else {
+			Objetos tmp= Root;
+			int tmppos=0;
+			while(i!=tmppos) {
+				tmp=tmp.getNext();
+				tmppos=+1;
+			}
+		return tmp;
+		}
+	}
 }
+
+
+
+
+
+
+
