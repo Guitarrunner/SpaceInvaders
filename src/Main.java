@@ -10,9 +10,14 @@ public class Main  extends Canvas implements Runnable{
 	private static final int ancho = 640, alto = ancho / 12 *9;
 	public Main() {
 		new Ventana(ancho,alto,"Space Invaders",this);
+		
+		manejador = new Manejador();
+		manejador.agregar(new Jugador(100,100,ID.Jugador));
 	}
 	private Thread thread;
 	private boolean corriendo = false;
+	
+	private Manejador manejador;
 	public synchronized void empezar() {
 		thread = new Thread(this);
 		thread.start();
@@ -55,7 +60,7 @@ public class Main  extends Canvas implements Runnable{
 	}
 	
 	private void tick() {
-		
+		manejador.tick();
 	}
 	private void render() {
 		BufferStrategy bs = this.getBufferStrategy();
@@ -66,6 +71,9 @@ public class Main  extends Canvas implements Runnable{
 		Graphics g = bs.getDrawGraphics();
 		g.setColor(Color.black);
 		g.fillRect(0, 0, ancho, alto);
+		
+		manejador.render(g);
+		
 		g.dispose();
 		bs.show();
 		

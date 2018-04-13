@@ -2,11 +2,11 @@
 
 public class ListaSimple {
 	Objetos Root = null;
-	int cantidadNodos;
+	int cantidadNodos=0;
 	void agregar(Objetos Nuevo) {
 		if (Root==null) {
 			Root = Nuevo;
-			cantidadNodos=1;
+			cantidadNodos+=1;
 			return;
 		}
 		else {
