@@ -3,9 +3,15 @@ import java.awt.Graphics;
 
 public class Jugador extends Objetos {
 
-	public Jugador(int x, int y, ID id) {
-		super(x, y, id);
+	public Jugador(int x, int y, ID id, Jugador J1) {
+		super(x, y, id, J1);
 		
+	}
+	public int getx() {
+		return x;
+	}
+	public int gety() {
+		return y;
 	}
 	public void tick() {
 		x += velx;

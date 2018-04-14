@@ -7,6 +7,7 @@ public abstract class Objetos extends Nodo {
 	private int valor = 0;
 	private Objetos next = null;
 	private Objetos previous = null;
+	protected Jugador J1;
 	
 	public Objetos getNext() {
 		return next;
@@ -32,10 +33,11 @@ public abstract class Objetos extends Nodo {
 	
 }
 	
-	public Objetos(int x, int y, ID id) {
+	public Objetos(int x, int y, ID id,Jugador J1) {
 		this.x =x;
 		this.y = y;
 		this.id = id;
+		this.J1 =J1;
 	}
 	
 	public abstract void tick();
