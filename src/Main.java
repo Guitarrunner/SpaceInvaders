@@ -12,6 +12,7 @@ public class Main  extends Canvas implements Runnable{
 		manejador = new Manejador();
 		this.addKeyListener(new KeyInput(manejador));
 		new Ventana(ancho,alto,"Space Invaders",this);
+		vidas = new Vidas();
 		
 		
 		manejador.objetos.agregar(new Jugador(100,100,ID.Jugador));
@@ -20,12 +21,20 @@ public class Main  extends Canvas implements Runnable{
 	}
 	private Thread thread;
 	private boolean corriendo = false;
+	private Vidas vidas;
 	
 	private Manejador manejador;
 	public synchronized void empezar() {
 		thread = new Thread(this);
 		thread.start();
 		corriendo = true;
+	}
+	public static int clamp(int var, int min, int max) {
+		if (var>=max) return var=max;
+		if (var<=min) return var=min;
+		else {
+			return var;
+		}
 	}
 	public synchronized void parar() {
 		try {
@@ -37,6 +46,7 @@ public class Main  extends Canvas implements Runnable{
 	}
 	@Override
 	public void run(){
+		this.requestFocus();
 		long ultimavez = System.nanoTime();
 		double cantidadTicks = 60.0;
 		double ns = 1000000000 / cantidadTicks;
@@ -64,6 +74,7 @@ public class Main  extends Canvas implements Runnable{
 	
 	private void tick() {
 		manejador.tick();
+		vidas.tick();
 	}
 	private void render() {
 		BufferStrategy bs = this.getBufferStrategy();
@@ -76,6 +87,7 @@ public class Main  extends Canvas implements Runnable{
 		g.fillRect(0, 0, ancho, alto);
 		
 		manejador.render(g);
+		vidas.render(g);
 		
 		g.dispose();
 		bs.show();

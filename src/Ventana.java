@@ -20,6 +20,7 @@ public class Ventana extends Canvas {
 		frame.setLocationRelativeTo(null);
 		frame.add(Juego);
 		frame.setVisible(true);
+		frame.setFocusable(true);
 		Juego.empezar();
 	}
 }

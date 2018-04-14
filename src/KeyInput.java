@@ -9,7 +9,6 @@ public class KeyInput extends KeyAdapter {
 	}
 	public void keyPressed(KeyEvent e) {
 		int key = e.getKeyCode();
-		System.out.println(key);
 		int i=0;
 		while(i<manejador.objetos.size()) {
 			Objetos tmp= manejador.objetos.get(i);
@@ -21,7 +20,8 @@ public class KeyInput extends KeyAdapter {
 			}
 			i+=1;
 		}
-		 
+		if (key == KeyEvent.VK_ESCAPE) System.exit(1); 
+		if (key == KeyEvent.VK_T) Vidas.vid(Vidas.getvid()-1); 
 	} 
 	
 	public void keyReleased(KeyEvent e) {

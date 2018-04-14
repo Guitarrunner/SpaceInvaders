@@ -10,6 +10,8 @@ public class Jugador extends Objetos {
 	public void tick() {
 		x += velx;
 		y += vely;
+		x = Main.clamp(x,0,640/12*9+125);
+		y = Main.clamp(y,0,640-223);
 	}
 	public void render(Graphics g) {
 		g.setColor(Color.red);
