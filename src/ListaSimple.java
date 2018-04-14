@@ -7,6 +7,7 @@ public class ListaSimple {
 		if (Root==null) {
 			Root = Nuevo;
 			cantidadNodos+=1;
+			//System.out.println(cantidadNodos);
 			return;
 		}
 		else {
@@ -15,7 +16,10 @@ public class ListaSimple {
 				tmp=tmp.getNext();
 			}
 			tmp.setNext(Nuevo);
+			//System.out.println(tmp);
+			//System.out.println(tmp.getNext());
 			cantidadNodos+=1;
+			//System.out.println(cantidadNodos);
 			return;
 		}
 	}
@@ -60,11 +64,15 @@ public class ListaSimple {
 		else {
 			Objetos tmp= Root;
 			int tmppos=0;
-			while(i!=tmppos) {
+			while(i>tmppos) {
 				tmp=tmp.getNext();
 				tmppos=+1;
 			}
+		//System.out.println(i + "s");
+		System.out.println(tmp);
+		System.out.println(tmp.getNext());
 		return tmp;
+		
 		}
 	}
 	
@@ -76,6 +84,7 @@ public class ListaSimple {
 			size++;
 		}
 		size=size+1;
+		//System.out.println(size);
 		return size;
 	}
 }

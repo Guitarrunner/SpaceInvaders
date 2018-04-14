@@ -5,15 +5,16 @@ public class EnemigoFollow extends Enemigo{
 
 	public EnemigoFollow(int x, int y, ID id, Jugador J1) {
 		super(x, y, id,J1);
-		
+		velx=0;
+		vely=0;
 	}
 	public void tick() {
 		if (Math.abs(J1.getx()-(x+1))>Math.abs(J1.getx()-(x-1)))
-			x=x-1;
-		else x=x+1;
+			x=x-2;
+		else x=x+2;
 		if (Math.abs(J1.gety()-(y+1))>Math.abs(J1.gety()-(y-1)))
-			y=y-1;
-		else y=y+1;
+			y=y-2;
+		else y=y+2;
 		x += velx;
 		y += vely;
 		

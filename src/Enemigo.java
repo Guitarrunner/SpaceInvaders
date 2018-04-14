@@ -6,16 +6,10 @@ public class Enemigo extends Objetos {
 	public Enemigo(int x, int y, ID id, Jugador J1) {
 		super(x, y, id,J1);
 		
-		//velx = 5;
-		//vely= 5;
+		velx = 5;
+		vely= 5;
 	}
 	public void tick() {
-		if (Math.abs(J1.getx()-(x+1))>Math.abs(J1.getx()-(x-1)))
-			velx=-2;
-		else velx=2;
-		if (Math.abs(J1.gety()-(y+1))>Math.abs(J1.gety()-(y-1)))
-			vely=-2;
-		else vely=2;
 		x += velx;
 		y += vely;
 		

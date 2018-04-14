@@ -5,8 +5,8 @@ public abstract class Objetos extends Nodo {
 	protected ID id;
 	protected int velx,vely;
 	private int valor = 0;
-	private Objetos next = null;
-	private Objetos previous = null;
+	private Objetos next ;
+	private Objetos previous;
 	protected Jugador J1;
 	
 	public Objetos getNext() {
