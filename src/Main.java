@@ -10,13 +10,13 @@ public class Main  extends Canvas implements Runnable{
 	private static final int ancho = 640, alto = ancho / 12 *9;
 	public Main() {
 		manejador = new Manejador();
-		
+		this.addKeyListener(new KeyInput(manejador));
 		new Ventana(ancho,alto,"Space Invaders",this);
 		
 		
 		manejador.objetos.agregar(new Jugador(100,100,ID.Jugador));
 		manejador.objetos.agregar(new Enemigo(200,200,ID.Enemigo));
-		this.addKeyListener(new Teclado(manejador));
+		
 	}
 	private Thread thread;
 	private boolean corriendo = false;
@@ -56,7 +56,6 @@ public class Main  extends Canvas implements Runnable{
 			frames++;
 			if(System.currentTimeMillis() - temporizador > 1000) {
 				temporizador += 1000;
-				System.out.println("FPS: "+ frames);
 				frames=0;
 			}
 		}

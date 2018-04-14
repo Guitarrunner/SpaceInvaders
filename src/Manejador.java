@@ -19,6 +19,8 @@ public class Manejador extends ListaSimple {
 			i+=1;
 		}
 	}
+	
+
 
 }
 

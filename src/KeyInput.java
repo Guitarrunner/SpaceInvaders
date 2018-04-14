@@ -2,19 +2,20 @@ import java.awt.event.KeyAdapter;
 
 import java.awt.event.KeyEvent;
 
-public class Teclado extends KeyAdapter {
+public class KeyInput extends KeyAdapter {
 	private Manejador manejador;
-	public Teclado(Manejador manejador) {
+	public KeyInput(Manejador manejador) {
 		this.manejador = manejador;
 	}
 	public void keyPressed(KeyEvent e) {
 		int key = e.getKeyCode();
+		System.out.println(key);
 		int i=0;
 		while(i<manejador.objetos.size()) {
 			Objetos tmp= manejador.objetos.get(i);
 			if(tmp.getId() == ID.Jugador) {
-				if (key == KeyEvent.VK_UP) tmp.setVely(5);
-				if (key == KeyEvent.VK_DOWN) tmp.setVely(-5);
+				if (key == KeyEvent.VK_UP) tmp.setVely(-5);
+				if (key == KeyEvent.VK_DOWN) tmp.setVely(5);
 				if (key == KeyEvent.VK_RIGHT) tmp.setVelx(5);
 				if (key == KeyEvent.VK_LEFT) tmp.setVelx(-5);
 			}
