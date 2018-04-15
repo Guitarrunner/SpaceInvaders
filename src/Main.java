@@ -15,10 +15,10 @@ public class Main  extends Canvas implements Runnable{
 		vidas = new Vidas();
 		Jugador J1 = new Jugador(100,100,ID.Jugador, null);
 		
-		manejador.objetos.add(J1);
-		manejador.objetos.add(new Enemigo(200,200,ID.Enemigo,J1));
-
-		manejador.objetos.add(new EnemigoFollow(300,200,ID.Enemigo,J1));
+		manejador.objetos.agregar(J1);
+		manejador.objetos.agregar(new Enemigo(200,200,ID.Enemigo,J1));
+		manejador.objetos.agregar(new Enemigo(100,200,ID.Enemigo,J1));
+		manejador.objetos.agregar(new EnemigoFollow(300,200,ID.Enemigo,J1));
 		
 	}
 	private Thread thread;

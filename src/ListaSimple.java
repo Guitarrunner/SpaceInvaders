@@ -62,19 +62,16 @@ public class ListaSimple {
 			throw new IllegalArgumentException("Index out of range");
 		}
 		else {
-			Objetos tmp= Root;
-			int tmppos=0;
-			while(i>tmppos) {
+			Objetos tmp = Root;
+			int e=0;
+			while (e!=i) {
 				tmp=tmp.getNext();
-				tmppos=+1;
+				e++;
 			}
-		//System.out.println(i + "s");
-		System.out.println(tmp);
-		System.out.println(tmp.getNext());
-		return tmp;
-		
+			return tmp;
 		}
-	}
+		}
+	
 	
 	int size() {
 		Objetos tmp=Root;
