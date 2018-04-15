@@ -10,6 +10,7 @@ public class Enemigo extends Objetos {
 	private int crono=5;
 	private int crono2 =300;
 	private int contador=0;
+	
 	public Enemigo(int x, int y, ID id, Jugador J1, Manejador manejador) {
 		super(x, y, id,J1);
 		this.manejador=manejador;

@@ -24,7 +24,7 @@ public class KeyInput extends KeyAdapter {
 				//if (key == KeyEvent.VK_DOWN) {keyDown[1]=true;tmp.setVely(5);}
 				if (key == KeyEvent.VK_RIGHT) {keyDown[2]=true;tmp.setVelx(5);}
 				if (key == KeyEvent.VK_LEFT) {keyDown[3]=true;tmp.setVelx(-5);}
-				if (key == KeyEvent.VK_SPACE) {tmp.crearbalas1(true);}
+				if (key == KeyEvent.VK_SPACE) {}
 				//if (key == KeyEvent.VK_UP) {tmp.setVely(-5);}
 				//if (key == KeyEvent.VK_DOWN) {tmp.setVely(5);}
 				//if (key == KeyEvent.VK_RIGHT) {tmp.setVelx(5);}
@@ -46,7 +46,7 @@ public class KeyInput extends KeyAdapter {
 					if (key == KeyEvent.VK_DOWN) keyDown[1]=false;//tmp.setVely(0);
 					if (key == KeyEvent.VK_RIGHT) keyDown[2]=false;//tmp.setVelx(0);
 					if (key == KeyEvent.VK_LEFT) keyDown[3]=false;//tmp.setVelx(0);
-					if (key == KeyEvent.VK_SPACE) {tmp.crearbalas1(false);}
+					if (key == KeyEvent.VK_SPACE) {}
 					//if (key == KeyEvent.VK_UP) {tmp.setVely(0);}
 					//if (key == KeyEvent.VK_DOWN) {tmp.setVely(0);}
 					//if (key == KeyEvent.VK_RIGHT) {tmp.setVelx(0);}

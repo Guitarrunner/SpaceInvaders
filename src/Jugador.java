@@ -19,7 +19,7 @@ public class Jugador extends Objetos {
 		return y;
 	}
 	public void tick() {
-		crearbalas();
+		//crearbalas(id);
 		x += velx;
 		y += vely;
 		x = Main.clamp(x,0,1350-38);

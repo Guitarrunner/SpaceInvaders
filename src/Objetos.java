@@ -9,6 +9,7 @@ public abstract class Objetos extends Nodo {
 	private Objetos next ;
 	private Objetos previous;
 	protected Jugador J1;
+	protected Manejador manejador;
 	
 	public Objetos getNext() {
 		return next;
@@ -87,8 +88,9 @@ public abstract class Objetos extends Nodo {
 		this.vely = vely;
 	}
 
-	public boolean crearbalas1(boolean b) {
-		return false;
+	public void crearbalas(ID id) {
+		manejador.objetos.agregar(new Bala(x,y,id,J1,manejador));
+		
 	}
 	
 	

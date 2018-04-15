@@ -10,16 +10,19 @@ public class Bala extends Objetos {
 		this.manejador=manejador;
 		
 		velx = 0;
-		vely= 4;
+		
 	}
 	public void tick() {
+		if (id == ID.Bala)vely= 4;
+		if (id == ID.BalaJugador)vely= -4;
 		x += velx;
 		y += vely;
 		
 		//if (y<=0 || y>=(746)-60) vely = -vely;
 		//if (x<=0 || x>=1350-32) velx *= -1;
 		
-		if (y >= 748) manejador.borrar(this,manejador.objetos);
+		if (y >= 748 && id==ID.Bala) manejador.borrar(this,manejador.objetos);
+		if (y <= 0 && id==ID.Bala) manejador.borrar(this,manejador.objetos);
 	}
 	public void render(Graphics g) {
 		g.setColor(Color.green);
