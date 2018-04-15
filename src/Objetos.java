@@ -33,7 +33,9 @@ public abstract class Objetos extends Nodo {
 		this.valor = valor;
 	
 }
-	
+	public void crearbalas() {
+		
+	}
 	public Objetos(int x, int y, ID id,Jugador J1) {
 		this.x =x;
 		this.y = y;
@@ -83,6 +85,10 @@ public abstract class Objetos extends Nodo {
 
 	public void setVely(int vely) {
 		this.vely = vely;
+	}
+
+	public boolean crearbalas1(boolean b) {
+		return false;
 	}
 	
 	

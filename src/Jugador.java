@@ -5,6 +5,7 @@ import java.awt.Rectangle;
 
 public class Jugador extends Objetos {
 	Manejador manejador;
+	public boolean b =false;
 
 	public Jugador(int x, int y, ID id, Jugador J1, Manejador manejador) {
 		super(x, y, id, J1);
@@ -18,6 +19,7 @@ public class Jugador extends Objetos {
 		return y;
 	}
 	public void tick() {
+		crearbalas();
 		x += velx;
 		y += vely;
 		x = Main.clamp(x,0,1350-38);
@@ -31,6 +33,8 @@ public class Jugador extends Objetos {
 	public Rectangle rectcolision() {
 		return new Rectangle(x,y,32,32);
 	}
+
+	
 	private void colision() {
 		int i=0;
 		while(i<manejador.objetos.size()) {

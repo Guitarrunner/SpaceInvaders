@@ -21,7 +21,7 @@ public class Enemigo extends Objetos {
 		if (x<=0 || x>=1350-32) vel = -vel;
 		return vel;
 	}
-	void crearbalas() {
+	public void crearbalas() {
 		
 		if (contador2<=0 && creap==0) {manejador.objetos.agregar(new Bala(x,y+32,ID.Bala,J1,manejador));contador2=50;creap++;}
 		
