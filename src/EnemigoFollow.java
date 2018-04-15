@@ -3,12 +3,15 @@ import java.awt.Graphics;
 
 public class EnemigoFollow extends Enemigo{
 	Manejador manejador;
-	public EnemigoFollow(int x, int y, ID id, Jugador J1,Manejador manejador) {
+	ID b = this.id;
+	EnemigoFollow(int x, int y, ID id, Jugador J1,Manejador manejador) {
 		super(x, y, id,J1,manejador);
 		velx=0;
 		vely=0;
 	}
+	
 	public void tick() {
+		crearbalas();
 		if (Math.abs(J1.getx()-(x+1))>Math.abs(J1.getx()-(x-1)))
 			x=x-2;
 		else x=x+2;

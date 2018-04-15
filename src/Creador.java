@@ -6,12 +6,14 @@ public class Creador {
 	private int contador=0;
 	private int contador1=0;
 	private int nivel;
+	
 	//private int marcador1;
 	public Creador(Manejador manejador, Vidas vida,Jugador J1) {
 		this.manejador = manejador;
 		this.vida = vida;
 		this.J1 =J1;
 	}
+	
 	public void tick() {
 		//marcador1++;
 		nivel=vida.getnivel();
@@ -35,7 +37,7 @@ public class Creador {
 			}
 		if (nivel%10==0) {
 			if (contador1==0) {
-				manejador.objetos.agregar(new EnemigoFollow(100,200,ID.Enemigo,J1,manejador));
+				manejador.objetos.agregar(new EnemigoFollow(100,200,ID.EnemigoFollow,J1,manejador));
 				contador1=contador1+1;
 			}
 		}	

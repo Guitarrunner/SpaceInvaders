@@ -5,6 +5,8 @@ import java.awt.Rectangle;
 
 public class Enemigo extends Objetos {
 	Manejador manejador;
+	private int contador2 =100;
+	private int creap =0;
 	private int crono=5;
 	private int crono2 =300;
 	private int contador=0;
@@ -19,7 +21,14 @@ public class Enemigo extends Objetos {
 		if (x<=0 || x>=1350-32) vel = -vel;
 		return vel;
 	}
+	void crearbalas() {
+		
+		if (contador2<=0 && creap==0) {manejador.objetos.agregar(new Bala(x,y+32,ID.Bala,J1,manejador));contador2=50;creap++;}
+		
+		else contador2--;creap=0;;
+	}
 	public void tick() {
+		crearbalas();
 		x += velx;
 		y += vely;
 		

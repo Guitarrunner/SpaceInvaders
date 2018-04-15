@@ -4,6 +4,7 @@ import java.awt.Rectangle;
 
 public class Bala extends Objetos {
 	Manejador manejador;
+	
 	public Bala(int x, int y, ID id, Jugador J1,Manejador manejador) {
 		super(x, y, id,J1);
 		this.manejador=manejador;
@@ -21,10 +22,11 @@ public class Bala extends Objetos {
 		if (y >= 748) manejador.borrar(this,manejador.objetos);
 	}
 	public void render(Graphics g) {
-		g.setColor(Color.white);
-		g.fillRect(x, y, 32, 32);
+		g.setColor(Color.green);
+		g.fillRect(x, y, 6, 6);
 	}
 	public Rectangle rectcolision() {
-		return new Rectangle(x,y,10,10);
+		return new Rectangle(x,y,6,6);
 	}
+	
 } 

@@ -35,9 +35,9 @@ public class Jugador extends Objetos {
 		int i=0;
 		while(i<manejador.objetos.size()) {
 			Objetos tmp= manejador.objetos.get(i);
-			if(tmp.getId() == ID.Enemigo) {
+			if(tmp.getId() == ID.Enemigo || tmp.getId() == ID.Bala) {
 				if (rectcolision().intersects(tmp.rectcolision())) {
-					Vidas.vid(Vidas.getvid()-1);
+					if (tmp.getId() ==ID.Bala) {manejador.objetos.borrar(tmp, manejador.objetos);Vidas.vid(Vidas.getvid()-1);}
 				}
 			}
 			i+=1;
