@@ -9,14 +9,14 @@ public class Enemigo extends Objetos {
 		//this.manejador=manejador;
 		
 		velx = 5;
-		vely= 5;
+		//vely= 5;
 	}
 	public void tick() {
 		x += velx;
 		y += vely;
 		
-		if (y<=0 || y>=(640/12*9)-60) vely = -vely;
-		if (x<=0 || x>=640-32) velx = -velx;
+		if (y<=0 || y>=(746)-60) vely = -vely;
+		if (x<=0 || x>=1350-32) velx = -velx;
 		
 	}
 	public void render(Graphics g) {

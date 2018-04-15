@@ -20,8 +20,8 @@ public class Jugador extends Objetos {
 	public void tick() {
 		x += velx;
 		y += vely;
-		x = Main.clamp(x,0,640/12*9+125);
-		y = Main.clamp(y,0,640-223);
+		x = Main.clamp(x,0,1350-38);
+		y = Main.clamp(y,0,747-60);
 		colision();
 	}
 	public void render(Graphics g) {

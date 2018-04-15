@@ -55,7 +55,7 @@ public class Vidas {
 		if (vidas==0) {
 			System.exit(1);
 		}
-		g.drawString("Marcador:" + marcador, 5, 440);
-		g.drawString("Nivel:" + nivel, 5, 430);
+		g.drawString("Marcador:" + marcador, 5, 700);
+		g.drawString("Nivel:" + nivel, 5, 710);
 	}
 }

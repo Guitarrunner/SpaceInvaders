@@ -27,7 +27,7 @@ public class Creador {
 		}
 		if (nivel%2==0) {
 			if (contador==0) {
-				manejador.objetos.agregar(new Enemigo(100,200,ID.Enemigo,J1));
+				manejador.objetos.agregar(new Enemigo(10,200,ID.Enemigo,J1));
 				contador=contador+1;
 				//System.out.println("sup");;
 			}

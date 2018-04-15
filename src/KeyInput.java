@@ -20,8 +20,8 @@ public class KeyInput extends KeyAdapter {
 		while(i<manejador.objetos.size()) {
 			Objetos tmp= manejador.objetos.get(i);
 			if(tmp.getId() == ID.Jugador) {
-				if (key == KeyEvent.VK_UP) {keyDown[0]=true;tmp.setVely(-5);}
-				if (key == KeyEvent.VK_DOWN) {keyDown[1]=true;tmp.setVely(5);}
+				//if (key == KeyEvent.VK_UP) {keyDown[0]=true;tmp.setVely(-5);}
+				//if (key == KeyEvent.VK_DOWN) {keyDown[1]=true;tmp.setVely(5);}
 				if (key == KeyEvent.VK_RIGHT) {keyDown[2]=true;tmp.setVelx(5);}
 				if (key == KeyEvent.VK_LEFT) {keyDown[3]=true;tmp.setVelx(-5);}
 				//if (key == KeyEvent.VK_UP) {tmp.setVely(-5);}
