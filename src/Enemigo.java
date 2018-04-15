@@ -4,19 +4,39 @@ import java.awt.Rectangle;
 
 public class Enemigo extends Objetos {
 	//Manejador manejador;
+	private int crono=5;
+	private int crono2 =300;
+	private int contador=0;
 	public Enemigo(int x, int y, ID id, Jugador J1) {
 		super(x, y, id,J1);
 		//this.manejador=manejador;
 		
-		velx = 5;
-		//vely= 5;
+		velx = 0;
+		vely= 2;
+	}
+	public int setvelx(int vel) {
+		if (x<=0 || x>=1350-32) vel = -vel;
+		return vel;
 	}
 	public void tick() {
 		x += velx;
 		y += vely;
 		
+		
+		if (crono<=0)vely=0;
+		else crono--;
+		
+		if(crono<=0) {
+			
+		crono2--;if(contador==0&&velx==0) {velx=-5;contador++;}if (contador==0 && velx>0) {velx=5;contador++;}if (contador==1 && velx<0) {velx=-5;contador++;} }
+	
+		
+		if(crono2<=0) {
+			if(vely==0) {vely=1;crono=5;crono2=300;contador=0;}
+		}
+		
 		if (y<=0 || y>=(746)-60) vely = -vely;
-		if (x<=0 || x>=1350-32) velx = -velx;
+		if (x<=0 || x>=1350-32) velx *= -1;
 		
 	}
 	public void render(Graphics g) {
