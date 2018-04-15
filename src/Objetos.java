@@ -86,13 +86,6 @@ public abstract class Objetos extends Nodo {
 
 	public void setVely(int vely) {
 		this.vely = vely;
-	}
-
-	public void crearbalas(ID id) {
-		manejador.objetos.agregar(new Bala(x,y,id,J1,manejador));
-		
-	}
-	
-	
+	}	
 	
 }

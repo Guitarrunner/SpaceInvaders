@@ -11,7 +11,8 @@ public class EnemigoFollow extends Enemigo{
 	}
 	
 	public void tick() {
-		crearbalas();
+		//crearbalas();
+		colision();
 		if (Math.abs(J1.getx()-(x+1))>Math.abs(J1.getx()-(x-1)))
 			x=x-2;
 		else x=x+2;

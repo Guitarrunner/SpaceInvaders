@@ -29,11 +29,11 @@ public class Enemigo extends Objetos {
 		else contador2--;creap=0;;
 	}
 	public void tick() {
-		crearbalas();
+		//crearbalas();
 		x += velx;
 		y += vely;
 		
-		
+		colision();
 		if (crono<=0)vely=0;
 		else crono--;
 		
@@ -59,5 +59,17 @@ public class Enemigo extends Objetos {
 	}
 	public Rectangle rectcolision() {
 		return new Rectangle(x,y,32,32);
+	}
+	protected void colision() {
+		int i=0;
+		while(i<manejador.objetos.size()) {
+			Objetos tmp= manejador.objetos.get(i);
+			if(tmp.getId() == ID.Bala ) {
+				if (rectcolision().intersects(tmp.rectcolision())) {
+					{manejador.objetos.borrar(this, manejador.objetos);}
+				}
+			}
+			i+=1;
+		}
 	}
 } 
