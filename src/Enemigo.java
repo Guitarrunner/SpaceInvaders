@@ -1,18 +1,17 @@
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Rectangle;
 
 public class Enemigo extends Objetos {
-
+	//Manejador manejador;
 	public Enemigo(int x, int y, ID id, Jugador J1) {
 		super(x, y, id,J1);
+		//this.manejador=manejador;
 		
 		velx = 5;
 		vely= 5;
 	}
 	public void tick() {
-		if ((x==J1.x||x==J1.x-20||x==J1.x+20) && (y==J1.y||y==J1.y-20||y==J1.y+20)) {
-			Vidas.vid(Vidas.getvid()-1);
-		}
 		x += velx;
 		y += vely;
 		
@@ -23,5 +22,8 @@ public class Enemigo extends Objetos {
 	public void render(Graphics g) {
 		g.setColor(Color.white);
 		g.fillRect(x, y, 32, 32);
+	}
+	public Rectangle rectcolision() {
+		return new Rectangle(x,y,32,32);
 	}
 } 

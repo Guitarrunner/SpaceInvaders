@@ -1,4 +1,5 @@
 import java.awt.Graphics;
+import java.awt.Rectangle;
 
 public abstract class Objetos extends Nodo {
 	protected int x,y;
@@ -42,6 +43,7 @@ public abstract class Objetos extends Nodo {
 	
 	public abstract void tick();
 	public abstract void render(Graphics g);
+	public abstract Rectangle rectcolision();
 
 	public int getX() {
 		return x;

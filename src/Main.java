@@ -8,16 +8,16 @@ public class Main  extends Canvas implements Runnable{
 
 	private static final long serialVersionUID = 1L;
 	private static final int ancho = 640, alto = ancho / 12 *9;
+	private Creador creador;
 	public Main() {
 		manejador = new Manejador();
 		this.addKeyListener(new KeyInput(manejador));
 		new Ventana(ancho,alto,"Space Invaders",this);
 		vidas = new Vidas();
-		Jugador J1 = new Jugador(100,500,ID.Jugador, null);
-		
+		Jugador J1 = new Jugador(100,500,ID.Jugador, null,manejador);
+		creador = new Creador(manejador, vidas,J1);
 		manejador.objetos.agregar(J1);
 		manejador.objetos.agregar(new Enemigo(200,200,ID.Enemigo,J1));
-		manejador.objetos.agregar(new Enemigo(100,200,ID.Enemigo,J1));
 		manejador.objetos.agregar(new EnemigoFollow(300,200,ID.Enemigo,J1));
 		
 	}
@@ -77,6 +77,7 @@ public class Main  extends Canvas implements Runnable{
 	private void tick() {
 		manejador.tick();
 		vidas.tick();
+		creador.tick();
 	}
 	private void render() {
 		BufferStrategy bs = this.getBufferStrategy();
