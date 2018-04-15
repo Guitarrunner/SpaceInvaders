@@ -8,6 +8,7 @@ public class Manejador extends ListaSimple {
 	public void tick() {
 		int i=0;
 		while(i<objetos.size()) {
+			
 			Objetos tmp= objetos.get(i);
 			tmp.tick();
 			i+=1;

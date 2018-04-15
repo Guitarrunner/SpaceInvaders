@@ -1,15 +1,16 @@
 import java.awt.Color;
+
 import java.awt.Graphics;
 import java.awt.Rectangle;
 
 public class Enemigo extends Objetos {
-	//Manejador manejador;
+	Manejador manejador;
 	private int crono=5;
 	private int crono2 =300;
 	private int contador=0;
-	public Enemigo(int x, int y, ID id, Jugador J1) {
+	public Enemigo(int x, int y, ID id, Jugador J1, Manejador manejador) {
 		super(x, y, id,J1);
-		//this.manejador=manejador;
+		this.manejador=manejador;
 		
 		velx = 0;
 		vely= 2;
@@ -32,11 +33,14 @@ public class Enemigo extends Objetos {
 	
 		
 		if(crono2<=0) {
-			if(vely==0) {vely=1;crono=5;crono2=300;contador=0;}
+			if(vely==0) {vely=10;crono=5;crono2=300;contador=0;}
 		}
 		
 		if (y<=0 || y>=(746)-60) vely = -vely;
 		if (x<=0 || x>=1350-32) velx *= -1;
+		//System.out.println(manejador.objetos.size());
+		if (y >= 650) {manejador.borrar(this, manejador.objetos);}
+		
 		
 	}
 	public void render(Graphics g) {

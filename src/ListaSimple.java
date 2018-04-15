@@ -33,7 +33,21 @@ public class ListaSimple {
 		System.out.println(tmp.getValor());
 		return;
 	}
-	
+	void borrar(Objetos objeto, ListaSimple L1) {
+		if (objeto == L1.Root) {
+			L1.Root = L1.Root.getNext();
+			return;
+		}
+		else {
+			Objetos tmp=L1.Root;
+			while (tmp.getNext()!= null) {
+				if (tmp.getNext()!=objeto) {
+					tmp=tmp.getNext();
+				}
+				else {tmp.setNext(tmp.getNext().getNext());cantidadNodos=cantidadNodos-1;break;}
+			}
+		}
+	}
 	void borrarporposicion(int posicion) {
 		if (posicion==0) {
 			Root = Root.getNext();

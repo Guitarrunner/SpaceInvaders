@@ -27,7 +27,7 @@ public class Creador {
 		}
 		if (nivel%5==0) {
 			if (contador==0) {
-				manejador.objetos.agregar(new Enemigo(10,200,ID.Enemigo,J1));
+				manejador.objetos.agregar(new Enemigo(10,200,ID.Enemigo,J1,manejador));
 				contador=contador+1;
 				//System.out.println("sup");;
 			}
@@ -35,7 +35,7 @@ public class Creador {
 			}
 		if (nivel%10==0) {
 			if (contador1==0) {
-				manejador.objetos.agregar(new EnemigoFollow(100,200,ID.Enemigo,J1));
+				manejador.objetos.agregar(new EnemigoFollow(100,200,ID.Enemigo,J1,manejador));
 				contador1=contador1+1;
 			}
 		}	
