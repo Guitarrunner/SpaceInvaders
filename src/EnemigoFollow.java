@@ -9,6 +9,9 @@ public class EnemigoFollow extends Enemigo{
 		vely=0;
 	}
 	public void tick() {
+		if (x==J1.x && y==J1.y) {
+			Vidas.vid(0);
+		}
 		if (Math.abs(J1.getx()-(x+1))>Math.abs(J1.getx()-(x-1)))
 			x=x-2;
 		else x=x+2;

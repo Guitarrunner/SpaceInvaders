@@ -10,6 +10,9 @@ public class Enemigo extends Objetos {
 		vely= 5;
 	}
 	public void tick() {
+		if ((x==J1.x||x==J1.x-20||x==J1.x+20) && (y==J1.y||y==J1.y-20||y==J1.y+20)) {
+			Vidas.vid(Vidas.getvid()-1);
+		}
 		x += velx;
 		y += vely;
 		
