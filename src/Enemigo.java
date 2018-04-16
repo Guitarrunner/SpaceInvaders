@@ -58,10 +58,10 @@ public class Enemigo extends Objetos {
 		}
 		
 		if (y<=0 || y>=(746)-60) vely = -vely;
-		if (x<=10 || x>=1350-42) velx *= -1;
+		if (x<=20 || x>=1350-52) velx *= -1;
 		//System.out.println(manejador.objetos.size());
 		if (y >= 650) {manejador.borrar(this, manejador.objetos);vida.vid(vida.getvid()-1);}
-		
+		if (x >= 1350-45 || x<=10 ) {manejador.borrar(this, manejador.objetos);}
 		
 	}
 	public void render(Graphics g) {

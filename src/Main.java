@@ -8,16 +8,32 @@ public class Main  extends Canvas implements Runnable{
 	private static final long serialVersionUID = 1L;
 	private static final int ancho = 1350, alto = 747;
 	private Creador creador;
+	private Menu menu;
+	private Jugador J1;
+	
+	public enum pantalla{
+		Menu,
+		Juego;
+	}
+	
+	public pantalla estado =pantalla.Menu;
 	public Main() {
 		manejador = new Manejador();
+		menu = new Menu(this, manejador);
 		vidas = new Vidas();
 		this.addKeyListener(new KeyInput(manejador,vidas));
+		this.addMouseListener(menu);
 		new Ventana(ancho,alto,"Space Invaders",this);
-		
-		Jugador J1 = new Jugador(100,700,ID.Jugador, null,manejador,vidas);
-		creador = new Creador(manejador, vidas,J1);
+		J1 = new Jugador(100,700,ID.Jugador, null,manejador,vidas);
+		creador = new Creador(manejador, vidas, J1);
 		manejador.objetos.agregar(J1);
-		manejador.objetos.agregar(new Enemigo(10,10,ID.Enemigo,J1,manejador,vidas));
+		if (estado==pantalla.Juego) {
+				
+			
+			manejador.objetos.agregar(new Enemigo(10,10,ID.Enemigo,J1,manejador,vidas));
+		}
+		
+		
 		
 	}
 	private Thread thread;
@@ -75,8 +91,15 @@ public class Main  extends Canvas implements Runnable{
 	
 	private void tick() {
 		manejador.tick();
-		vidas.tick();
-		creador.tick();
+		if (estado == pantalla.Juego) {
+			
+			vidas.tick();
+			creador.tick();
+		} 
+		if (estado == pantalla.Menu){
+			menu.tick();
+		}
+		
 	}
 	private void render() {
 		BufferStrategy bs = this.getBufferStrategy();
@@ -87,9 +110,16 @@ public class Main  extends Canvas implements Runnable{
 		Graphics g = bs.getDrawGraphics();
 		g.setColor(Color.black);
 		g.fillRect(0, 0, ancho, alto);
-		
 		manejador.render(g);
-		vidas.render(g);
+		if (estado==pantalla.Juego) {
+			vidas.render(g);
+		}
+		if (estado == pantalla.Menu){
+			g.setColor(Color.white);
+			menu.render(g);
+		}
+			
+			
 		
 		g.dispose();
 		bs.show();

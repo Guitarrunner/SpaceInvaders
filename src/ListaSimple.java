@@ -88,6 +88,7 @@ public class ListaSimple {
 	
 	
 	int size() {
+		if(cantidadNodos!=0) {
 		Objetos tmp=Root;
 		int size=0;
 		while(tmp.getNext()!=null) {
@@ -98,6 +99,9 @@ public class ListaSimple {
 		//System.out.println(size);
 		return size;
 	}
+		else return 0;
+	}
+	
 }
 
 

@@ -7,7 +7,7 @@ public class Manejador extends ListaSimple {
 	//LinkedList<Objetos> objetos = new LinkedList<Objetos>();
 	public void tick() {
 		int i=0;
-		while(i<objetos.size()) {
+		while(i<objetos.size() && objetos.size()!=0) {
 			
 			Objetos tmp= objetos.get(i);
 			tmp.tick();

@@ -15,10 +15,11 @@ public class Creador {
 	Random r = new Random();
 	
 	//private int marcador1;
-	public Creador(Manejador manejador, Vidas vida,Jugador J1) {
+	public Creador(Manejador manejador, Vidas vida, Jugador J1) {
 		this.manejador = manejador;
 		this.vida = vida;
-		this.J1 =J1;
+		this.J1 = J1;
+		
 		
 	}
 	
