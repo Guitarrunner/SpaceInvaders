@@ -2,13 +2,13 @@ import java.awt.Graphics;
 import java.awt.Color;
 
 public class Vidas {
-	static int getvid() {
+	int getvid() {
 		return vidas;
 	}
-	static void vid(int num) {
+	void vid(int num) {
 		vidas = num;
 	}
-	static int vidas = 3;
+	int vidas = 3;
 	Color basic = Color.blue;
 	public void tick() {
 		marcador++;

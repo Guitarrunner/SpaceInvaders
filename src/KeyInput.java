@@ -3,9 +3,11 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
 public class KeyInput extends KeyAdapter {
+	Vidas vida;
 	private Manejador manejador;
 	private boolean[] keyDown = new boolean[4];
-	public KeyInput(Manejador manejador) {
+	public KeyInput(Manejador manejador, Vidas vida) {
+		this.vida = vida;
 		this.manejador = manejador;
 		keyDown[0] =false;
 		keyDown[1] =false;
@@ -22,8 +24,8 @@ public class KeyInput extends KeyAdapter {
 			if(tmp.getId() == ID.Jugador) {
 				//if (key == KeyEvent.VK_UP) {keyDown[0]=true;tmp.setVely(-5);}
 				//if (key == KeyEvent.VK_DOWN) {keyDown[1]=true;tmp.setVely(5);}
-				if (key == KeyEvent.VK_RIGHT) {keyDown[2]=true;tmp.setVelx(5);}
-				if (key == KeyEvent.VK_LEFT) {keyDown[3]=true;tmp.setVelx(-5);}
+				if (key == KeyEvent.VK_RIGHT) {keyDown[2]=true;tmp.setVelx(7);}
+				if (key == KeyEvent.VK_LEFT) {keyDown[3]=true;tmp.setVelx(-7);}
 				if (key == KeyEvent.VK_SPACE) {tmp.b=true;}
 				//if (key == KeyEvent.VK_UP) {tmp.setVely(-5);}
 				//if (key == KeyEvent.VK_DOWN) {tmp.setVely(5);}
@@ -33,7 +35,7 @@ public class KeyInput extends KeyAdapter {
 			i+=1;
 		}
 		if (key == KeyEvent.VK_ESCAPE) System.exit(1); 
-		if (key == KeyEvent.VK_T) Vidas.vid(Vidas.getvid()-1); 
+		if (key == KeyEvent.VK_T) vida.vid(vida.getvid()-1); 
 	} 
 	
 	public void keyReleased(KeyEvent e) {

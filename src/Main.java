@@ -10,9 +10,10 @@ public class Main  extends Canvas implements Runnable{
 	private Creador creador;
 	public Main() {
 		manejador = new Manejador();
-		this.addKeyListener(new KeyInput(manejador));
-		new Ventana(ancho,alto,"Space Invaders",this);
 		vidas = new Vidas();
+		this.addKeyListener(new KeyInput(manejador,vidas));
+		new Ventana(ancho,alto,"Space Invaders",this);
+		
 		Jugador J1 = new Jugador(100,700,ID.Jugador, null,manejador,vidas);
 		creador = new Creador(manejador, vidas,J1);
 		manejador.objetos.agregar(J1);

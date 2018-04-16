@@ -21,7 +21,7 @@ public class Jugador extends Objetos {
 	}
 	public void crearbalas(boolean b) {
 		if (b==true) {
-		if (contador2<=0 && creap==0) {manejador.objetos.agregar(new Bala(x,y,ID.Bala,J1,manejador));contador2=25;creap++;}
+		if (contador2<=0 && creap==0) {manejador.objetos.agregar(new Bala(x,y,ID.Bala,J1,manejador));contador2=15;creap++;}
 		
 		else contador2--;creap=0;}
 	}
@@ -48,7 +48,7 @@ public class Jugador extends Objetos {
 			Objetos tmp= manejador.objetos.get(i);
 			if(tmp.getId() == ID.Enemigo ) {
 				if (rectcolision().intersects(tmp.rectcolision())) {
-					{manejador.objetos.borrar(tmp, manejador.objetos);Vidas.vid(0);}
+					{manejador.objetos.borrar(tmp, manejador.objetos);vida.vid(0);}
 				}
 			}
 			i+=1;
