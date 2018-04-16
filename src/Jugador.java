@@ -5,12 +5,11 @@ import java.awt.Rectangle;
 
 public class Jugador extends Objetos {
 	Manejador manejador;
-	private int contador2 =100;
+	private Vidas vida;
 	private int creap =0;
-	public boolean b =false;
-
-	public Jugador(int x, int y, ID id, Jugador J1, Manejador manejador) {
+	public Jugador(int x, int y, ID id, Jugador J1, Manejador manejador, Vidas vida) {
 		super(x, y, id, J1);
+		this.vida =vida;
 		this.manejador = manejador;
 		
 	}
@@ -20,14 +19,14 @@ public class Jugador extends Objetos {
 	public int gety() {
 		return y;
 	}
-	public void crearbalas() {
+	public void crearbalas(boolean b) {
+		if (b==true) {
+		if (contador2<=0 && creap==0) {manejador.objetos.agregar(new Bala(x,y,ID.Bala,J1,manejador));contador2=25;creap++;}
 		
-		if (contador2<=0 && creap==0) {manejador.objetos.agregar(new Bala(x,y,ID.Bala,J1,manejador));contador2=50;creap++;}
-		
-		else contador2--;creap=0;;
+		else contador2--;creap=0;}
 	}
 	public void tick() {
-		crearbalas();
+		crearbalas(b);
 		x += velx;
 		y += vely;
 		x = Main.clamp(x,0,1350-38);

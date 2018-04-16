@@ -13,10 +13,10 @@ public class Main  extends Canvas implements Runnable{
 		this.addKeyListener(new KeyInput(manejador));
 		new Ventana(ancho,alto,"Space Invaders",this);
 		vidas = new Vidas();
-		Jugador J1 = new Jugador(100,700,ID.Jugador, null,manejador);
+		Jugador J1 = new Jugador(100,700,ID.Jugador, null,manejador,vidas);
 		creador = new Creador(manejador, vidas,J1);
 		manejador.objetos.agregar(J1);
-		manejador.objetos.agregar(new Enemigo(10,10,ID.Enemigo,J1,manejador));
+		manejador.objetos.agregar(new Enemigo(10,10,ID.Enemigo,J1,manejador,vidas));
 		
 	}
 	private Thread thread;

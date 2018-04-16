@@ -10,9 +10,11 @@ public class Enemigo extends Objetos {
 	private int crono=5;
 	private int crono2 =300;
 	private int contador=0;
+	private Vidas vida;
 	
-	public Enemigo(int x, int y, ID id, Jugador J1, Manejador manejador) {
+	public Enemigo(int x, int y, ID id, Jugador J1, Manejador manejador,Vidas vida) {
 		super(x, y, id,J1);
+		this.vida =vida;
 		this.manejador=manejador;
 		
 		velx = 0;
@@ -23,10 +25,11 @@ public class Enemigo extends Objetos {
 		return vel;
 	}
 	public void crearbalas() {
-		
+	
 		if (contador2<=0 && creap==0) {manejador.objetos.agregar(new Bala(x,y+32,ID.Bala,J1,manejador));contador2=50;creap++;}
 		
-		else contador2--;creap=0;;
+		else contador2--;creap=0;
+		
 	}
 	public void tick() {
 		//crearbalas();
@@ -66,7 +69,7 @@ public class Enemigo extends Objetos {
 			Objetos tmp= manejador.objetos.get(i);
 			if(tmp.getId() == ID.Bala ) {
 				if (rectcolision().intersects(tmp.rectcolision())) {
-					{manejador.objetos.borrar(this, manejador.objetos);}
+					{manejador.objetos.borrar(this, manejador.objetos);manejador.objetos.borrar(tmp, manejador.objetos);vida.marcador2(vida.getmarcador2()+100);}
 				}
 			}
 			i+=1;

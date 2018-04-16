@@ -12,8 +12,9 @@ public class Vidas {
 	Color basic = Color.blue;
 	public void tick() {
 		marcador++;
-		if (marcador%100==0) {
+		if (marcador%2000==0) {
 			nivel++;
+			marcador2 = marcador2 +1000;
 		}
 	}
 	public void marcador(int marcador) {
@@ -21,6 +22,12 @@ public class Vidas {
 	}
 	public int getmarcador() {
 		return marcador;
+	}
+	public void marcador2(int marcador) {
+		this.marcador2 = marcador;
+	}
+	public int getmarcador2() {
+		return marcador2;
 	}
 	public void nivel(int nivel) {
 		this.nivel = nivel;
@@ -32,6 +39,7 @@ public class Vidas {
 		this.nivel=nivel;
 	}
 	private int marcador = 0;
+	private int marcador2 = 0;
 	private int nivel= 1;
 	public void render(Graphics g) {
 		if (vidas==3) {
@@ -55,7 +63,7 @@ public class Vidas {
 		if (vidas==0) {
 			System.exit(1);
 		}
-		g.drawString("Marcador:" + marcador, 5, 700);
+		g.drawString("Marcador:" + getmarcador2(), 5, 700);
 		g.drawString("Nivel:" + nivel, 5, 710);
 	}
 }

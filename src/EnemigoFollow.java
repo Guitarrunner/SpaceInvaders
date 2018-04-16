@@ -3,9 +3,8 @@ import java.awt.Graphics;
 
 public class EnemigoFollow extends Enemigo{
 	Manejador manejador;
-	ID b = this.id;
-	EnemigoFollow(int x, int y, ID id, Jugador J1,Manejador manejador) {
-		super(x, y, id,J1,manejador);
+	EnemigoFollow(int x, int y, ID id, Jugador J1,Manejador manejador, Vidas vida) {
+		super(x, y, id,J1,manejador,vida);
 		velx=0;
 		vely=0;
 	}
