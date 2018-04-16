@@ -13,6 +13,7 @@ public class Main  extends Canvas implements Runnable{
 	
 	public enum pantalla{
 		Menu,
+		GameOver,
 		Informacion,
 		Juego;
 	}
@@ -20,8 +21,9 @@ public class Main  extends Canvas implements Runnable{
 	public pantalla estado =pantalla.Menu;
 	public Main() {
 		manejador = new Manejador();
-		menu = new Menu(this, manejador);
-		vidas = new Vidas();
+		vidas = new Vidas(this,manejador);
+		menu = new Menu(this, manejador,vidas);
+		
 		this.addKeyListener(new KeyInput(manejador,vidas));
 		this.addMouseListener(menu);
 		new Ventana(ancho,alto,"Space Invaders",this);
@@ -115,7 +117,7 @@ public class Main  extends Canvas implements Runnable{
 		if (estado==pantalla.Juego) {
 			vidas.render(g);
 		}
-		if (estado == pantalla.Menu || estado == pantalla.Informacion){
+		if (estado == pantalla.Menu || estado == pantalla.Informacion || estado == pantalla.GameOver){
 			g.setColor(Color.white);
 			menu.render(g);
 		}

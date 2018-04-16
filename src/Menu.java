@@ -7,8 +7,9 @@ public class Menu extends MouseAdapter {
 	
 	private Main juego;
 	private Manejador manejador;
-	
-	public Menu(Main juego, Manejador manejador) {
+	private Vidas vida;
+	public Menu(Main juego, Manejador manejador,Vidas vida) {
+		this.vida = vida;
 		this.juego =juego;
 		this.manejador = manejador;
 	}
@@ -19,13 +20,16 @@ public class Menu extends MouseAdapter {
 		//72, 560, 371, 75
 		if (juego.estado == Main.pantalla.Menu) {
 			if (mouseen(mx, my,72,560,371,75)) {
+				vida.vid(3);
 				juego.estado = Main.pantalla.Juego;
+				
 				}
 			if (mouseen(mx, my,896, 560, 371, 75)) System.exit(1);;
 			if  (mouseen(mx, my,484, 560, 371, 75)) juego.estado = Main.pantalla.Informacion;
 		}
 		
 		if (juego.estado == Main.pantalla.Informacion) {if  (mouseen(mx, my,484, 360, 371, 75)) juego.estado = Main.pantalla.Menu;}
+		if (juego.estado == Main.pantalla.GameOver) {if  (mouseen(mx, my,484, 360, 371, 75)) juego.estado = Main.pantalla.Menu;}
 	}
 	
 	public void mouseReleased(MouseEvent e) {
@@ -70,6 +74,17 @@ public class Menu extends MouseAdapter {
 			g.drawString("Josue Araya Garcia", 590, 288);
 			g.drawString("2017103205", 590, 328);
 			
+			g.drawRect(484, 360, 371, 75);
+		}
+		if(juego.estado == Main.pantalla.GameOver){
+			Font fnt = new Font("arial",1,30);
+			Font fnt1 = new Font("arial",1,15);
+			g.setFont(fnt);
+			g.drawString("GAME OVER", 590, 188);
+			g.drawString("Volver", 620, 405);
+			g.setFont(fnt1);
+			g.drawString("Tu marcador fue de "+vida.getmarcador2()+" puntos", 590, 288);
+			g.drawString("Lograste el nivel " + vida.getnivel(), 590, 328);
 			g.drawRect(484, 360, 371, 75);
 		}
 	}

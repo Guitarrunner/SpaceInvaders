@@ -1,7 +1,13 @@
 import java.awt.Graphics;
 import java.awt.Color;
 
-public class Vidas {
+public class Vidas{
+	private Main juego;
+	private Manejador manejador;
+	public Vidas(Main juego, Manejador manejador) {
+		this.juego =juego;
+		this.manejador = manejador;
+	}
 	int getvid() {
 		return vidas;
 	}
@@ -61,7 +67,15 @@ public class Vidas {
 			g.fillRect(15, 15, 12, 12);
 		}
 		if (vidas==0) {
-			System.exit(1);
+			;
+			int i=manejador.objetos.size();
+			while(i>=1) {
+				
+				Objetos tmp= manejador.objetos.get(i);
+				manejador.borrar(tmp, manejador.objetos);
+				i--;
+			}
+			juego.estado = Main.pantalla.GameOver;
 		}
 		g.drawString("Marcador:" + getmarcador2(), 5, 700);
 		g.drawString("Nivel:" + nivel, 5, 710);
