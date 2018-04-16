@@ -3,11 +3,10 @@ import java.util.Random;
 public class Creador {
 	private Manejador manejador;
 	private Vidas vida;
-	private Jugador J1;
 	private int contador=0;
 	private int contador1=0;
 	private int nivel;
-
+	private Jugador J1;
 	private int contador2 =0;
 	private int creap =0;
 	private int contador3 =0;
@@ -19,9 +18,10 @@ public class Creador {
 		this.manejador = manejador;
 		this.vida = vida;
 		this.J1 = J1;
-		
-		
 	}
+	
+		
+		
 	
 	public void tick() {
 
