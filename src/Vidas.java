@@ -75,6 +75,9 @@ public class Vidas{
 				manejador.borrar(tmp, manejador.objetos);
 				i--;
 			}
+			Musica.getMusic("Juego").stop();
+			Musica.load("GameOver", "res/GameOver.ogg");
+			Musica.getMusic("GameOver").loop();
 			juego.estado = Main.pantalla.GameOver;
 		}
 		g.drawString("Marcador:" + getmarcador2(), 5, 700);

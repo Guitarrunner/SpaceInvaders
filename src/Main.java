@@ -18,12 +18,14 @@ public class Main  extends Canvas implements Runnable{
 		Juego;
 	}
 	
+	
 	public pantalla estado =pantalla.Menu;
 	public Main() {
 		manejador = new Manejador();
 		vidas = new Vidas(this,manejador);
 		menu = new Menu(this, manejador,vidas);
-		
+		Musica.load("Menu","res/Menu.ogg");
+		Musica.getMusic("Menu").loop();
 		this.addKeyListener(new KeyInput(manejador,vidas));
 		this.addMouseListener(menu);
 		new Ventana(ancho,alto,"Space Invaders",this);
