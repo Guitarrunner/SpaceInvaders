@@ -1,7 +1,7 @@
 public class Nodo {
 	private int valor = 0;
 	private Nodo next = null;
-	private Nodo previous;
+	private Nodo previous = null;
 	
 	public Nodo getNext() {
 		return next;

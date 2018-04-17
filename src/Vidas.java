@@ -72,12 +72,19 @@ public class Vidas{
 			while(i>=1) {
 				
 				Objetos tmp= manejador.objetos.get(i);
-				manejador.borrar(tmp, manejador.objetos);
+				if (tmp.getId()==ID.Jugador) {
+				 i--;
+				}
+				else {
+					manejador.borrar(tmp, manejador.objetos);
 				i--;
+				}
+				
 			}
 			Musica.getMusic("Juego").stop();
 			Musica.load("GameOver", "res/GameOver.ogg");
-			Musica.getMusic("GameOver").loop();
+			Musica.getMusic("GameOver").play();
+			System.out.println(i);
 			juego.estado = Main.pantalla.GameOver;
 		}
 		g.drawString("Marcador:" + getmarcador2(), 5, 700);

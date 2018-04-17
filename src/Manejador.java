@@ -2,8 +2,8 @@ import java.awt.Graphics;
 
 //import java.util.LinkedList;
 
-public class Manejador extends ListaSimple {
-	ListaSimple objetos = new ListaSimple();
+public class Manejador extends ListaDCircular {
+	ListaDCircular objetos = new ListaDCircular();
 	//LinkedList<Objetos> objetos = new LinkedList<Objetos>();
 	public void tick() {
 		int i=0;

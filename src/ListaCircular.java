@@ -1,20 +1,23 @@
 
-public class ListaDoble extends ListaSimple{
+
+public class ListaCircular extends ListaSimple{
 	Objetos Root = null;
 	int cantidadNodos=0;
 	void agregar(Objetos Nuevo) {
 		if (Root==null) {
 			Root = Nuevo;
+			Root.setNext(Root);
 			cantidadNodos+=1;
 			//System.out.println(cantidadNodos);
 			return;
 		}
 		else {
 			Objetos tmp = Root;
-			while(tmp.getNext()!=null) {
+			while(tmp.getNext()!=Root) {
 				tmp=tmp.getNext();
 			}
 			tmp.setNext(Nuevo);
+			tmp.getNext().setNext(Root);
 			tmp.getNext().setPrevious(tmp);
 			//System.out.println(tmp);
 			//System.out.println(tmp.getNext());
@@ -23,31 +26,24 @@ public class ListaDoble extends ListaSimple{
 			return;
 		}
 	}
-	
 
-	void borrar(Objetos objeto, ListaDoble L1) {
+	void borrar(Objetos objeto, ListaCircular L1) {
 		if (objeto == L1.Root) {
 			L1.Root = L1.Root.getNext();
-			L1.Root.setPrevious(null);
 			return;
 		}
 		else {
 			Objetos tmp=L1.Root;
-			while (tmp!=objeto && tmp.getNext() != null) {
+			while (tmp.getNext()!= Root) {
+				if (tmp.getNext()!=objeto) {
 					tmp=tmp.getNext();
-			}
-			if (tmp.getNext()!=null) {
-				tmp.getPrevious().setNext(tmp.getNext());
-				tmp.getNext().setPrevious(tmp.getPrevious());
-				cantidadNodos=cantidadNodos-1;
-			}
-			else {tmp.getPrevious().setNext(tmp.getNext());
-				cantidadNodos=cantidadNodos-1;}
 				}
+				else {tmp.setNext(tmp.getNext().getNext());cantidadNodos=cantidadNodos-1;break;}
+			}
+		}
 	}
-	
 
-	
+
 	Objetos get(int i) {
 		if(i>cantidadNodos) {
 			throw new IllegalArgumentException("Index out of range");
@@ -63,12 +59,11 @@ public class ListaDoble extends ListaSimple{
 		}
 		}
 	
-	
 	int size() {
 		if(cantidadNodos!=0) {
 		Objetos tmp=Root;
 		int size=0;
-		while(tmp.getNext()!=null) {
+		while(tmp.getNext()!=Root) {
 			tmp=tmp.getNext();
 			size++;
 		}
@@ -80,3 +75,4 @@ public class ListaDoble extends ListaSimple{
 	}
 	
 }
+

@@ -46,7 +46,7 @@ public class Jugador extends Objetos {
 		int i=0;
 		while(i<manejador.objetos.size()) {
 			Objetos tmp= manejador.objetos.get(i);
-			if(tmp.getId() == ID.Enemigo ) {
+			if(tmp.getId() == ID.EnemigoFollow ) {
 				if (rectcolision().intersects(tmp.rectcolision())) {
 					{manejador.objetos.borrar(tmp, manejador.objetos);vida.vid(0);}
 				}

@@ -6,7 +6,6 @@ import java.awt.event.MouseEvent;
 public class Menu extends MouseAdapter {
 	
 	private Main juego;
-	private Manejador manejador;
 	private Vidas vida;
 
 	private String[] Canciones= new String[4];
@@ -14,7 +13,6 @@ public class Menu extends MouseAdapter {
 	public Menu(Main juego, Manejador manejador,Vidas vida) {
 		this.vida = vida;
 		this.juego =juego;
-		this.manejador = manejador;
 	}
 	
 	public void mousePressed(MouseEvent e) {
