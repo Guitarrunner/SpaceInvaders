@@ -5,6 +5,7 @@ import java.awt.Rectangle;
 
 public class Jugador extends Objetos {
 	Manejador manejador;
+	Manejador mbalas= Main.manejador2;
 	private Vidas vida;
 	private int creap =0;
 	public Jugador(int x, int y, ID id, Jugador J1, Manejador manejador, Vidas vida) {
@@ -21,7 +22,7 @@ public class Jugador extends Objetos {
 	}
 	public void crearbalas(boolean b) {
 		if (b==true) {
-		if (contador2<=0 && creap==0) {manejador.objetos.agregar(new Bala(x,y,ID.Bala,J1,manejador));contador2=15;creap++;}
+		if (contador2<=0 && creap==0) {manejador.objetos.agregar(new Bala(x,y,ID.Bala,J1,manejador),manejador.objetos);contador2=15;creap++;}
 		
 		else contador2--;creap=0;}
 	}

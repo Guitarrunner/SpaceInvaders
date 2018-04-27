@@ -14,6 +14,7 @@ public class Enemigo extends Objetos {
 	private Vidas vida;
 	Random r = new Random();
 	
+	
 	public Enemigo(int x, int y, ID id, Jugador J1, Manejador manejador,Vidas vida) {
 		super(x, y, id,J1);
 		this.vida =vida;
@@ -26,17 +27,21 @@ public class Enemigo extends Objetos {
 		if (x<=0 || x>=1350-32) vel = -vel;
 		return vel;
 	}
-	public void crearbalas() {
 	
-		if (contador2<=0 && creap==0) {manejador.objetos.agregar(new Bala(x,y+32,ID.Bala,J1,manejador));contador2=50;creap++;}
-		
-		else contador2--;creap=0;
-		
-	}
 	
 	public void cambiodireccion() {
 		int decision = r.nextInt(30);
-		if (decision==9) velx = -velx;
+		if (decision==9) {
+		int i=0;
+		while(i<manejador.objetos.size()) {
+			Objetos tmp= manejador.objetos.get(i);
+			if(tmp.getId() == ID.Enemigo ) {
+				 velx = -velx;
+			}
+			i+=1;
+		}
+		}
+		
 	}
 	public void tick() {  
 		//crearbalas();

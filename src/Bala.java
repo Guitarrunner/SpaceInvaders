@@ -9,6 +9,7 @@ public class Bala extends Objetos {
 		super(x, y, id,J1);
 		this.manejador=manejador;
 		
+		
 		velx = 0;
 		vely=-4;
 	}

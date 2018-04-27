@@ -2,15 +2,15 @@
 public class ListaDoble extends ListaSimple{
 	Objetos Root = null;
 	int cantidadNodos=0;
-	void agregar(Objetos Nuevo) {
-		if (Root==null) {
-			Root = Nuevo;
+	void agregar(Objetos Nuevo,ListaDoble L1) {
+		if (L1.Root==null) {
+			L1.Root = Nuevo;
 			cantidadNodos+=1;
 			//System.out.println(cantidadNodos);
 			return;
 		}
 		else {
-			Objetos tmp = Root;
+			Objetos tmp = L1.Root;
 			while(tmp.getNext()!=null) {
 				tmp=tmp.getNext();
 			}

@@ -2,22 +2,22 @@
 public class ListaDCircular extends ListaSimple{
 	Objetos Root = null;
 	int cantidadNodos=0;
-	void agregar(Objetos Nuevo) {
-		if (Root==null) {
-			Root = Nuevo;
+	void agregar(Objetos Nuevo, ListaDCircular L1) {
+		if (L1.Root==null) {
+			L1.Root = Nuevo;
 			cantidadNodos+=1;
-			Root.setPrevious(Root);
-			Root.setNext(Root);
+			L1.Root.setPrevious(L1.Root);
+			L1.Root.setNext(L1.Root);
 			//System.out.println(cantidadNodos);
 			return;
 		}
 		else {
-			Objetos tmp = Root;
-			while(tmp.getNext()!=Root) {
+			Objetos tmp = L1.Root;
+			while(tmp.getNext()!=L1.Root) {
 				tmp=tmp.getNext();
 			}
 			tmp.setNext(Nuevo);
-			tmp.getNext().setNext(Root);
+			tmp.getNext().setNext(L1.Root);
 			Root.setPrevious(Nuevo);
 			tmp.getNext().setPrevious(tmp);
 			//System.out.println(tmp);
@@ -30,6 +30,12 @@ public class ListaDCircular extends ListaSimple{
 	
 
 	void borrar(Objetos objeto, ListaDCircular L1) {
+		if (L1.size()==1){
+			L1.Root=null;
+			L1.cantidadNodos=0;
+			return;
+		}
+		else {
 		if (objeto == L1.Root) {
 			L1.Root = L1.Root.getNext();
 			L1.Root.setPrevious(Root.getPrevious().getPrevious());
@@ -43,10 +49,11 @@ public class ListaDCircular extends ListaSimple{
 			
 				tmp.getPrevious().setNext(tmp.getNext());
 				tmp.getNext().setPrevious(tmp.getPrevious());
-				cantidadNodos=cantidadNodos-1;
+				L1.cantidadNodos=L1.cantidadNodos-1;
 				
 		}
 		}
+	}
 	
 
 	

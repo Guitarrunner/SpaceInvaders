@@ -3,19 +3,19 @@
 public class ListaSimple {
 	Objetos Root = null;
 	int cantidadNodos=0;
-	void agregar(Objetos Nuevo) {
-		if (Root==null) {
-			Root = Nuevo;
+	void agregar(Objetos object, ListaSimple L1) {
+		if (L1.Root==null) {
+			L1.Root = object;
 			cantidadNodos+=1;
 			//System.out.println(cantidadNodos);
 			return;
 		}
 		else {
-			Objetos tmp = Root;
+			Objetos tmp = L1.Root;
 			while(tmp.getNext()!=null) {
 				tmp=tmp.getNext();
 			}
-			tmp.setNext(Nuevo);
+			tmp.setNext(object);
 			//System.out.println(tmp);
 			//System.out.println(tmp.getNext());
 			cantidadNodos+=1;

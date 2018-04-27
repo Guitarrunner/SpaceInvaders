@@ -6,11 +6,14 @@ public class Creador {
 	private int contador=0;
 	private int contador1=0;
 	private int nivel;
+	private int linea=0;
 	private Jugador J1;
 	private int contador2 =0;
 	private int creap =0;
 	private int contador3 =0;
 	private int creap2 =0;
+	private int xxx=140;
+	private EnemigoA A = new EnemigoA(J1,manejador,vida);
 	Random r = new Random();
 	
 	//private int marcador1;
@@ -24,13 +27,19 @@ public class Creador {
 		
 	
 	public void tick() {
-
 		
-		if (contador2<=0 && creap==0) {manejador.objetos.agregar(new Enemigo(r.nextInt(1300),r.nextInt(100),ID.Enemigo,J1,manejador,vida));contador2=50;creap++;}
+		
+		if (contador2<=0 && creap==0) {manejador.objetos.agregar(new Enemigo(r.nextInt(1300),r.nextInt(100),ID.Enemigo,J1,manejador,vida),manejador.objetos);
+		/*while(linea!=10) {
+			manejador.objetos.agregar(new Enemigo(xxx,50,ID.Enemigo,J1,manejador,vida),manejador.objetos);
+			xxx+=50;
+			linea++;
+		}*/;
+		contador2=50;creap++;}
 		
 		else contador2--;creap=0;
 		
-		if (contador3<=0 && creap2==0) {manejador.objetos.agregar(new EnemigoFollow(r.nextInt(1300),r.nextInt(100),ID.EnemigoFollow,J1,manejador,vida));contador3=150;creap2++;}
+		if (contador3<=0 && creap2==0) {manejador.objetos.agregar(new EnemigoFollow(r.nextInt(1300),r.nextInt(100),ID.EnemigoFollow,J1,manejador,vida),manejador.objetos);contador3=150;creap2++;}
 		
 		else contador3--;creap2=0;
 		
@@ -49,7 +58,7 @@ public class Creador {
 		}
 		if (nivel%5==0) {
 			if (contador==0) {
-				manejador.objetos.agregar(new Enemigo(10,200,ID.Enemigo,J1,manejador,vida));
+				manejador.objetos.agregar(new Enemigo(10,200,ID.Enemigo,J1,manejador,vida),manejador.objetos);
 				contador=contador+1;
 				//System.out.println("sup");;
 			}
@@ -57,7 +66,7 @@ public class Creador {
 			}
 		if (nivel%10==0) {
 			if (contador1==0) {
-				manejador.objetos.agregar(new EnemigoFollow(100,200,ID.EnemigoFollow,J1,manejador,vida));
+				manejador.objetos.agregar(new EnemigoFollow(100,200,ID.EnemigoFollow,J1,manejador,vida),manejador.objetos);
 				contador1=contador1+1;
 			}
 		}	
